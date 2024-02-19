@@ -12,14 +12,17 @@
                 "args": [
                     "build",
                     "--bin=playground_rust",
-                    "--package=playground_rust"
+                    "--package=playground_rust",
                 ],
                 "filter": {
                     "name": "playground_rust",
                     "kind": "bin"
                 }
             },
-            "args": [],
+            "args": [
+                "--",
+                "2",
+            ],
             "cwd": "${workspaceFolder}"
         },
         {
