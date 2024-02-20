@@ -14,5 +14,6 @@ fn main() {
         guessing_game::guess();
     } else if chapter == "2" {
         common_programming_concepts::variables_and_mutability();
+        common_programming_concepts::data_types();
     }
 }
