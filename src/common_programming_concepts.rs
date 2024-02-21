@@ -1,3 +1,5 @@
+use std::any::type_name;
+
 pub fn variables_and_mutability() {
     println!(">>> Variables and Mutability");
 
@@ -20,12 +22,10 @@ pub fn variables_and_mutability() {
     println!("<<<")
 }
 
-pub fn data_types() {
-    println!(">>> Data Types");
+pub fn scalar_data_types() {
+    println!(">>> Scalar Data Types");
 
-    println!("1. Scalar Types");
-
-    println!("1.1 Integer");
+    println!("1. Integer");
 
     let i8_min: i8 = std::i8::MIN;
     let i8_max: i8 = std::i8::MAX;
@@ -94,5 +94,59 @@ pub fn data_types() {
         }
     }
 
-    println!("1.2 ");
+    println!("2. Float Point Types");
+
+    let f64_num: f64 = 42.0;
+    println!("Type of {f64_num} is {}", type_name::<f64>());
+    let f32_num: f32 = 42.0;
+    println!("Type of {f32_num} is {}", type_name::<f32>());
+
+    println!("3. Numerical Operations");
+
+    let a: i32 = -5;
+    let b: i32 = 3;
+    let sum: i32 = a + b;
+    let diff: i32 = a - b;
+    let prod: i32 = a * b;
+    let quot: i32 = a / b;
+    let remain: i32 = a % b;
+    println!(
+        "a is {a}, b is {b}, \
+        sum is {sum}, \
+        difference is {diff}, \
+        production is {prod}, \
+        quotation is {quot}, \
+        remainder is {remain}."
+    );
+
+    println!("4. The Boolean Type");
+    let t: bool = true;
+    let f: bool = false;
+    println!("{t}, {f}");
+
+    println!("5. The Character Type");
+    let c: char = 'z';
+    let z: char = 'ℤ';
+    let heart_eyed_cat: char = '😻';
+    println!("Examples: {c}, {z}, {heart_eyed_cat}");
+
+    let hex: Option<char> = std::char::from_u32(0x1111);
+    match hex {
+        None => println!("The value can not transfer to char."),
+        Some(char) => println!("Char from hex: {char}"),
+    }
+
+    fn iter_all_chars() {
+        println!("Unicode Scalar Values range from U+0000 to U+D7FF and U+E000 to U+10FFFF inclusive");
+        // Iterate over all possible Unicode scalar values
+        for i in 0..=0x10FFFF {
+            // Attempt to convert the scalar value to a char
+            if let Some(_ch) = std::char::from_u32(i) {
+                // println!("Unicode Scalar Value: {:X}, Character: {}", i, ch);
+                continue;
+            }
+        }
+    }
+    iter_all_chars();
+    
 }
