@@ -7,7 +7,7 @@
         {
             "type": "lldb",
             "request": "launch",
-            "name": "Debug executable 'playground_rust'",
+            "name": "run main",
             "cargo": {
                 "args": [
                     "build",

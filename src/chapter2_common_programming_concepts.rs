@@ -160,3 +160,20 @@ pub fn scalar_data_types() {
 
     println!("<<<")
 }
+
+pub fn functions_and_control_flow() {
+    println!(">>> Functions");
+    println!(
+        "- Statements are instructions that perform some action and do not return a value. \
+        - Expressions evaluate to a resultant value and return the value. \
+        - Expressions do not include ending semicolons."
+    );
+
+    let y: i32 = {
+        let x: i32 = 3;
+        x + 1 // Expressions do not include ending semicolons and return the value!
+    };
+
+    println!("The value of y is: {y}");
+    println!("<<<")
+}

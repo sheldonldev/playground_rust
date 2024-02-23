@@ -7,12 +7,12 @@ pub fn guess() {
     println!("Game: guessing numbers! (type 'quit' to quit)");
 
     // loop the game
-    loop {
+    'game: loop {
         // generate random secret number
         let secret_number: u32 = rand::thread_rng().gen_range(1..=100);
 
         // loop the guess till correct or quit
-        loop {
+        'guess: loop {
             // get user input
             let mut guess: String = String::new();
             io::stdin()
@@ -22,7 +22,7 @@ pub fn guess() {
             // if 'quit' then quit
             if guess.trim() == "quit" {
                 println!("Quit the game.");
-                return;
+                break 'game;
             }
 
             // parse to number or continue input
@@ -36,7 +36,7 @@ pub fn guess() {
                 Ordering::Less => println!("Too small."),
                 Ordering::Equal => {
                     println!("You win! One more time. (type 'quit' to quit)");
-                    break;
+                    break 'guess;
                 }
             }
         }
